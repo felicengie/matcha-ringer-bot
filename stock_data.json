@@ -553,7 +553,7 @@
   ],
   [
     "ippodo-global_Hatsu-mukashi 40 g_Ippodo Global",
-    true
+    null
   ],
   [
     "ippodo-global_Ikuyo‑no‑mukashi 30 g_Ippodo Global",
@@ -582,5 +582,21 @@
   [
     "ippodo-global_Sayaka‑no‑mukashi 100 g Bag_Ippodo Global",
     null
+  ],
+  [
+    "marukyu-koyamaen_Yugen_Matcha Miyako",
+    false
+  ],
+  [
+    "yamamasa-koyamaen_Yamamasa - Ogurayama 30g_Shizucha",
+    false
+  ],
+  [
+    "yamamasa-koyamaen_Samidori_MatchaJP",
+    false
+  ],
+  [
+    "yamamasa-koyamaen_Kasuga no Mukashi_Gion Tsujiri",
+    false
   ]
 ]

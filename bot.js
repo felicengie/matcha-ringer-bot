@@ -70,13 +70,35 @@ class MatchaBot {
     setupEventHandlers() {
         if (this._eventHandlersSetup) return;
         this._eventHandlersSetup = true;
+        
+        this.client.once('ready', async () => {
+            try {
+                console.log(`🍵 Matcha Bot is online as ${this.client.user.tag}!`);
 
-        this.client.once('clientReady', () => {
-            console.log(`🍵 Matcha Bot is online as ${this.client.user.tag}!`);
-            this.setupChannels();
-            this.startMonitoring();
-            this.client.on('messageCreate', this.handleMessageCreate.bind(this));
+                // Wait for guilds to cache properly
+                await this.client.guilds.fetch();
+
+                const guild = this.client.guilds.cache.first();
+                if (!guild) {
+                    console.log('❌ No guilds found. Please add the bot to a server.');
+                    return;
+                }
+
+                await this.setupChannels();
+                this.startMonitoring();
+                this.client.on('messageCreate', this.handleMessageCreate.bind(this));
+            } catch (error) {
+                console.error('❌ Error during client.ready setup:', error);
+            }
         });
+
+        // try {
+        // this.client.once('ready', () => {
+        //     console.log(`🍵 Matcha Bot is online as ${this.client.user.tag}!`);
+        //     this.setupChannels();
+        //     this.startMonitoring();
+        //     this.client.on('messageCreate', this.handleMessageCreate.bind(this));
+        // });
 
         this.client.on('interactionCreate', async (interaction) => {
             try {
@@ -211,7 +233,7 @@ class MatchaBot {
                 console.log('🎭 Simulating alert for testing');
                 const testVendor = this.vendors['marukyu-koyamaen'];
                 const testProduct = testVendor.products[0];
-                const testStockInfo = { inStock: true, price: '¥2,520', url: 'https://www.marukyu-koyamaen.co.jp/english/shop/products/1181040c1' };
+                const testStockInfo = { inStock: true, price: '¥2,520', url: testProduct.suppliers[0].url, supplier: testProduct.suppliers[0].name };
                 
                 await this.sendStockAlert('marukyu-koyamaen', testVendor, testProduct, testStockInfo);
                 await message.reply('🎭 Test alert sent! Check the vendor channels.');
@@ -495,19 +517,20 @@ class MatchaBot {
         }
     }
 
-
     async sendStockAlert(vendorKey, vendor, product, stockInfo) {
         const guild = this.client.guilds.cache.first();
         if (!guild) return;
 
         const channel = guild.channels.cache.find(ch => ch.name === `🪴│${vendorKey}`);
         const role = guild.roles.cache.find(r => r.name === `${vendor.name} Alerts`);
-        
-        if (!channel || !role) return;
+        const productName = product.name || 'Unknown Product';
+        const supplierName = stockInfo.supplier || 'Unknown Supplier';
+        const price = stockInfo.price || 'Not found';
+        const url = stockInfo.url || '#';
 
         const embed = new EmbedBuilder()
             .setTitle(`${product.name} is back in stock!`)
-            .setDescription(`🔔 <@&${role.id}> via ${stockInfo.supplier}`)
+            .setDescription(`🔔 ${role.id} via ${stockInfo.supplier}`)
             .setColor(0x00ff00)
             .addFields(
                 { name: '**Product**', value: product.name, inline: true },
@@ -529,7 +552,7 @@ class MatchaBot {
             })
             // .setThumbnail('https://cdn.discordapp.com/emojis/1234567890123456789.png'); // Add matcha image
 
-        await channel.send({ content: `${role} - New restock alert!`, embeds: [embed] });
+        await channel.send({ content: `<@&${role.id}> - New restock alert!`, embeds: [embed] });
     }
 
     async checkStockWithRetry(vendor, product, maxRetries = 5) {
@@ -568,7 +591,12 @@ class MatchaBot {
 
                         if (stockInfo.inStock && (previousStock === false || previousStock === undefined)) {
                             console.log(`🎉 ${vendor.name} - ${product.name} is back in stock!`);
-                            await this.sendStockAlert(vendorKey, vendor, product, { ...stockInfo, supplier: supplier.name });
+                            await this.sendStockAlert(vendorKey, vendor, product, { 
+                                inStock: stockInfo.inStock,
+                                price: stockInfo.price,
+                                url: stockInfo.url,
+                                supplier: supplier.name
+                            });
                         }
 
                         this.stockData.set(productKey, stockInfo.inStock);

@@ -37,7 +37,8 @@ const vendors = {
               suppliers: [
                 { name: 'Horii Shichimeien', url: 'https://horiishichimeien.com/en/products/matcha-todounomukashi' }
               ]
-            }
+            },
+            
         ]
     },
     'ippodo-global': {
@@ -177,7 +178,12 @@ const vendors = {
                     { name: 'Matcha Miyako', url: 'https://matchamiyako.com/en-us/products/wako-100g' },
                     { name: 'Matcha Miyako', url: 'https://matchamiyako.com/en-us/products/wako' }
                 ]
-            }
+            },
+            { name: 'Yugen',
+              suppliers: [
+                  { name: 'Matcha Miyako', url: 'https://matchamiyako.com/en-us/products/yugen' }
+              ]
+            },
         ]
     },
     'yugen-tea': {
@@ -279,7 +285,27 @@ const vendors = {
               ]
             }
         ]
-    }
+    },
+    'yamamasa-koyamaen': {
+      name: 'Yamamasa Koyamaen',
+      products: [
+          { name: 'Yamamasa - Ogurayama 30g', 
+            suppliers: [
+              { name: 'Shizucha', url: 'https://shizucha.com/products/ogurayama' }
+            ]
+          },
+          { name: 'Samidori', 
+            suppliers: [
+              { name: 'MatchaJP', url: 'https://www.matchajp.net/products/koyamaen-matcha-tea-powder-ceremonical-grade-150g-can-samidori' }
+            ]
+          },
+          { name: 'Kasuga no Mukashi', 
+            suppliers: [
+              { name: 'Gion Tsujiri', url: 'https://shop.giontsujiri.co.jp/products/21412' }
+            ]
+          }
+      ]
+    },
 };
 
 module.exports = vendors;
