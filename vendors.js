@@ -1,16 +1,3 @@
-/////////////////////////////////////////////////////////////////////////////
-// // At the top of bot.js
-// const vendors = require('./vendors');
-// // And in your constructor, replace the big this.vendors = { ... } block with:
-// constructor() {
-//     // ... other constructor code ...
-    
-//     this.vendors = vendors; // Use the imported vendors
-    
-//     // ... rest of constructor ...
-// }
-///////////////////////////////////////////////////////////////////////////
-
 // vendors.js
 const vendors = {
     'gion-tsujiri': {

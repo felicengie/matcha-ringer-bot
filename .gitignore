@@ -1,0 +1,257 @@
+# Matcha Bot .gitignore
+
+# =====================================
+# SENSITIVE FILES - NEVER COMMIT THESE
+# =====================================
+
+Matcha Bot Setup Guide.pdf
+matchabot.js
+congig.js
+package-lock.json
+package.json
+
+# Environment variables and config files
+.env
+.env.local
+.env.production
+.env.staging
+.env.development
+config.json
+config.js
+settings.json
+credentials.json
+secrets.json
+keys.jsons
+
+# Discord bot tokens and API keys
+*token*
+*key*
+*secret*
+discord-token.txt
+bot-token.txt
+api-keys.txt
+
+# Database files (if using local databases)
+*.db
+*.sqlite
+*.sqlite3
+database.json
+db.json
+
+# =====================================
+# NODE.JS & NPM
+# =====================================
+
+# Dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage directory used by tools like istanbul
+lib-cov/
+coverage/
+*.lcov
+
+# nyc test coverage
+.nyc_output
+
+# node-wiser
+.wiser
+
+# Dependency directories
+jspm_packages/
+
+# TypeScript cache
+*.tsbuildinfo
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Optional REPL history
+.node_repl_history
+
+# Output of 'npm pack'
+*.tgz
+
+# Yarn Integrity file
+.yarn-integrity
+
+# parcel-bundler cache (https://parceljs.org/)
+.cache
+.parcel-cache
+
+# =====================================
+# PM2 & PROCESS MANAGEMENT
+# =====================================
+
+# PM2 logs and dumps
+.pm2/
+logs/
+*.log
+ecosystem.config.js
+pm2.json
+
+# Process dumps
+*.dump
+
+# =====================================
+# PLAYWRIGHT & BROWSER DATA
+# =====================================
+
+# Playwright browsers
+/playwright/.cache/
+/ms-playwright/
+playwright-report/
+test-results/
+
+# Browser user data
+browser-data/
+user-data/
+chrome-data/
+
+# Screenshots (if saving them)
+screenshots/
+browser-screenshots/
+
+# =====================================
+# APPLICATION SPECIFIC
+# =====================================
+
+
+
+# Data storage
+data/
+storage/
+cache/
+temp/
+tmp/
+
+# Backup files
+*.bak
+*.backup
+backup/
+backups/
+
+# Log files
+*.log
+logs/
+error.log
+debug.log
+access.log
+matcha-bot.log
+scraper.log
+
+# =====================================
+# DEVELOPMENT & TESTING
+# =====================================
+
+# Testing
+test/fixtures/
+test/data/
+*.test.local.js
+test-config.json
+
+# Development files
+.vscode/settings.json
+.vscode/launch.json
+*.dev.js
+dev-*
+local-*
+
+# Temporary files
+.tmp/
+temp/
+
+# =====================================
+# OPERATING SYSTEM
+# =====================================
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+._*
+.Spotlight-V100
+.Trashes
+.fseventsd
+.TemporaryItems
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# Linux
+*~
+.nfs*
+
+# =====================================
+# EDITORS & IDEs
+# =====================================
+
+# VSCode
+.vscode/
+!.vscode/extensions.json
+!.vscode/tasks.json
+
+# WebStorm/IntelliJ
+.idea/
+*.swp
+*.swo
+*~
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp
+*.swo
+*.un~
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+
+# =====================================
+# MISCELLANEOUS
+# =====================================
+
+# Zip archives
+*.zip
+*.rar
+*.tar.gz
+*.7z
+
+# Certificates
+*.pem
+*.key
+*.crt
+*.cert
+
+# Docker
+Dockerfile.local
+docker-compose.override.yml
+.dockerignore.local

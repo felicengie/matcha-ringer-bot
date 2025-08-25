@@ -1,0 +1,586 @@
+[
+  [
+    "marukyu-koyamaen_Wakatake",
+    false
+  ],
+  [
+    "marukyu-koyamaen_Kinrin",
+    false
+  ],
+  [
+    "marukyu-koyamaen_Aorashi",
+    false
+  ],
+  [
+    "marukyu-koyamaen_Yugen",
+    false
+  ],
+  [
+    "ippodo-global_Sayaka-no-mukashi",
+    false
+  ],
+  [
+    "ippodo-global_Ikuyo-no-mukashi",
+    false
+  ],
+  [
+    "ippodo-global_Ummon-no-mukashi",
+    false
+  ],
+  [
+    "ippodo-us_Sayaka-no-mukashi US",
+    false
+  ],
+  [
+    "ippodo-us_Ikuyo-no-mukashi US",
+    true
+  ],
+  [
+    "kanbayashi-shunsho_Premium Matcha",
+    false
+  ],
+  [
+    "horii-shichimeien_Ceremonial Matcha",
+    false
+  ],
+  [
+    "yamamasa-koyamaen_Premium Grade",
+    false
+  ],
+  [
+    "mizuba-tea_Ceremonial Matcha",
+    false
+  ],
+  [
+    "gion-tsujiri_Premium Matcha",
+    false
+  ],
+  [
+    "rocky-matcha_Ceremonial Grade",
+    false
+  ],
+  [
+    "marukyu-koyamaen_Wako",
+    false
+  ],
+  [
+    "marukyu-koyamaen_Isuzu",
+    false
+  ],
+  [
+    "ippodo-global_Uji-Shimizu",
+    false
+  ],
+  [
+    "ippodo-global_Kanun-no-shiro",
+    false
+  ],
+  [
+    "ippodo-global_Hourai-no-mukashi",
+    false
+  ],
+  [
+    "ippodo-us_100gr Sayaka-no-mukashi US",
+    false
+  ],
+  [
+    "mizuba-tea_Daily Matcha",
+    false
+  ],
+  [
+    "rocky-matcha_Premium Ceremonial",
+    false
+  ],
+  [
+    "rocky-matcha_Competition Grade",
+    false
+  ],
+  [
+    "ippodo-us_Sayaka-no-mukashi",
+    false
+  ],
+  [
+    "ippodo-us_Ikuyo-no-mukashi",
+    true
+  ],
+  [
+    "ippodo-us_Ummon-no-mukashi",
+    false
+  ],
+  [
+    "yugen-tea_Premium Matcha",
+    null
+  ],
+  [
+    "yugen-tea_Ceremonial Matcha",
+    null
+  ],
+  [
+    "sazen-tea_Marukyu Kinrin",
+    null
+  ],
+  [
+    "sazen-tea_Marukyu Wakatake",
+    null
+  ],
+  [
+    "hojicha-co_Marukyu Matcha",
+    false
+  ],
+  [
+    "hojicha-co_Premium Selection",
+    false
+  ],
+  [
+    "nara-tea_Marukyu Collection",
+    false
+  ],
+  [
+    "nara-tea_Ceremonial Grade",
+    false
+  ],
+  [
+    "ippodo-global_Ikuyo‑no‑mukashi 30 g",
+    null
+  ],
+  [
+    "ippodo-global_Ikuyo‑no‑mukashi 100 g",
+    null
+  ],
+  [
+    "ippodo-global_Uji-Shimizu 400 g Bag",
+    true
+  ],
+  [
+    "ippodo-global_Kan‑no‑shiro 30 g Box",
+    null
+  ],
+  [
+    "ippodo-global_Ummon‑no‑mukashi 40 g Can",
+    null
+  ],
+  [
+    "ippodo-global_Sayaka‑no‑mukashi 40 g Can",
+    null
+  ],
+  [
+    "ippodo-global_Sayaka‑no‑mukashi 100 g Bag",
+    null
+  ],
+  [
+    "ippodo-us_Sayaka-no-mukashi 100g",
+    false
+  ],
+  [
+    "ippodo-us_Ikuyo-no-mukashi 100g",
+    false
+  ],
+  [
+    "rocky-matcha_Ceremonial Blend 20g",
+    false
+  ],
+  [
+    "rocky-matcha_Ceremonial Blend 100g",
+    false
+  ],
+  [
+    "rocky-matcha_Tsujiki Ceremonial Blend 20g",
+    false
+  ],
+  [
+    "rocky-matcha_Osada Ceremonial Blend 20g",
+    false
+  ],
+  [
+    "marukyu-koyamaen_Chigi no Shira",
+    false
+  ],
+  [
+    "ippodo-us_mi no mukasi 20g",
+    false
+  ],
+  [
+    "ippodo-us_nodoka spring",
+    false
+  ],
+  [
+    "ippodo-global_Hatsu-mukashi 40 g",
+    null
+  ],
+  [
+    "nakamura tokichi_senun no shiro",
+    true
+  ],
+  [
+    "nakamura tokichi_fuji no shiro",
+    true
+  ],
+  [
+    "nakamura tokichi_Ukishima-no-Shiro",
+    false
+  ],
+  [
+    "nakamura tokichi_Seiko-no-Mukashi 30gr",
+    true
+  ],
+  [
+    "nakamura tokichi_Seikan-no-Shiro 30gr",
+    false
+  ],
+  [
+    "nakamura tokichi_Sho-no-Mukash 30gr",
+    false
+  ],
+  [
+    "nakamura tokichi_Hiroha-no-Shiro 30gr",
+    true
+  ],
+  [
+    "nakamura tokichi_Yukawa-no-Shiro 30gr",
+    false
+  ],
+  [
+    "nakamura-tokichi_senun no shiro",
+    true
+  ],
+  [
+    "nakamura-tokichi_fuji no shiro",
+    true
+  ],
+  [
+    "nakamura-tokichi_Ukishima-no-Shiro",
+    false
+  ],
+  [
+    "nakamura-tokichi_Seiko-no-Mukashi 30gr",
+    true
+  ],
+  [
+    "nakamura-tokichi_Seikan-no-Shiro 30gr",
+    false
+  ],
+  [
+    "nakamura-tokichi_Sho-no-Mukash 30gr",
+    false
+  ],
+  [
+    "nakamura-tokichi_Hiroha-no-Shiro 30gr",
+    true
+  ],
+  [
+    "nakamura-tokichi_Yukawa-no-Shiro 30gr",
+    false
+  ],
+  [
+    "gion-tsujiri_Matcha Chiyomukashi 40g",
+    null
+  ],
+  [
+    "gion-tsujiri_Minegumo no Mukashi, 40g",
+    null
+  ],
+  [
+    "gion-tsujiri_Tsubonaka no Mukashi",
+    null
+  ],
+  [
+    "horii-shichimeien_Uji Mukashi",
+    false
+  ],
+  [
+    "horii-shichimeien_Agata no Shiro",
+    false
+  ],
+  [
+    "horii-shichimeien_Todou Mukashi",
+    false
+  ],
+  [
+    "marukyu-koyamaen_Chigi no Shiro",
+    false
+  ],
+  [
+    "marukyu-koyamaen_Midorigi",
+    false
+  ],
+  [
+    "ippodo-us_Kan 30gr",
+    false
+  ],
+  [
+    "ippodo-us_Wakaki - 40g",
+    false
+  ],
+  [
+    "yugen-tea_Matcha 1",
+    false
+  ],
+  [
+    "yugen-tea_Matcha 2",
+    false
+  ],
+  [
+    "yugen-tea_Matcha 3",
+    false
+  ],
+  [
+    "gion-tsujiri_Matcha Chiyomukashi 40g_Gion Tsujiri",
+    null
+  ],
+  [
+    "gion-tsujiri_Minegumo no Mukashi, 40g_Gion Tsujiri",
+    null
+  ],
+  [
+    "gion-tsujiri_Tsubonaka no Mukashi_Gion Tsujiri",
+    null
+  ],
+  [
+    "horii-shichimeien_Uji Mukashi_Horii Shichimeien",
+    false
+  ],
+  [
+    "horii-shichimeien_Agata no Shiro_Horii Shichimeien",
+    false
+  ],
+  [
+    "horii-shichimeien_Todou Mukashi_Horii Shichimeien",
+    false
+  ],
+  [
+    "ippodo-global_Hatsu-mukashi 40 g_Ippodo Global",
+    null
+  ],
+  [
+    "ippodo-global_Ikuyo‑no‑mukashi 30 g_Ippodo Global",
+    null
+  ],
+  [
+    "ippodo-global_Ikuyo‑no‑mukashi 100 g_Ippodo Global",
+    null
+  ],
+  [
+    "ippodo-global_Uji-Shimizu 400 g Bag_Ippodo Global",
+    true
+  ],
+  [
+    "ippodo-global_Kan‑no‑shiro 30 g Box_Ippodo Global",
+    null
+  ],
+  [
+    "ippodo-global_Ummon‑no‑mukashi 40 g Can_Ippodo Global",
+    null
+  ],
+  [
+    "ippodo-global_Sayaka‑no‑mukashi 40 g Can_Ippodo Global",
+    null
+  ],
+  [
+    "ippodo-global_Sayaka‑no‑mukashi 100 g Bag_Ippodo Global",
+    null
+  ],
+  [
+    "ippodo-us_Sayaka-no-mukashi_Ippodo US",
+    false
+  ],
+  [
+    "ippodo-us_Sayaka-no-mukashi 100g_Ippodo US",
+    false
+  ],
+  [
+    "ippodo-us_Ikuyo-no-mukashi_Ippodo US",
+    false
+  ],
+  [
+    "ippodo-us_Ikuyo-no-mukashi 100g_Ippodo US",
+    false
+  ],
+  [
+    "ippodo-us_Kan 30gr_Ippodo US",
+    false
+  ],
+  [
+    "ippodo-us_mi no mukasi 20g_Ippodo US",
+    false
+  ],
+  [
+    "ippodo-us_nodoka spring_Ippodo US",
+    false
+  ],
+  [
+    "ippodo-us_Ummon-no-mukashi_Ippodo US",
+    false
+  ],
+  [
+    "ippodo-us_Wakaki - 40g_Ippodo US",
+    false
+  ],
+  [
+    "marukyu-koyamaen_Aorashi_Marukyu Koyamaen",
+    null
+  ],
+  [
+    "marukyu-koyamaen_Aorashi_Matcha Miyako",
+    false
+  ],
+  [
+    "marukyu-koyamaen_Chigi no Shiro_Marukyu Koyamaen",
+    null
+  ],
+  [
+    "marukyu-koyamaen_Isuzu_Marukyu Koyamaen",
+    null
+  ],
+  [
+    "marukyu-koyamaen_Isuzu_Matcha Miyako",
+    false
+  ],
+  [
+    "marukyu-koyamaen_Kinrin_Marukyu Koyamaen",
+    null
+  ],
+  [
+    "marukyu-koyamaen_Midorigi_J&J Market",
+    false
+  ],
+  [
+    "marukyu-koyamaen_Wakatake_Marukyu Koyamaen",
+    null
+  ],
+  [
+    "marukyu-koyamaen_Wako_Marukyu Koyamaen",
+    null
+  ],
+  [
+    "marukyu-koyamaen_Wako_Matcha Miyako",
+    false
+  ],
+  [
+    "yugen-tea_Matcha 1_Yugen Tea",
+    false
+  ],
+  [
+    "yugen-tea_Matcha 2_Yugen Tea",
+    false
+  ],
+  [
+    "yugen-tea_Matcha 3_Yugen Tea",
+    false
+  ],
+  [
+    "mizuba-tea_Daily Matcha_Mizuba Tea Co",
+    false
+  ],
+  [
+    "nakamura-tokichi_senun no shiro_Nakamura Tokichi",
+    true
+  ],
+  [
+    "nakamura-tokichi_fuji no shiro_Nakamura Tokichi",
+    true
+  ],
+  [
+    "nakamura-tokichi_Ukishima-no-Shiro_Nakamura Tokichi",
+    false
+  ],
+  [
+    "nakamura-tokichi_Seiko-no-Mukashi 30gr_Nakamura Tokichi",
+    true
+  ],
+  [
+    "nakamura-tokichi_Seikan-no-Shiro 30gr_Nakamura Tokichi",
+    false
+  ],
+  [
+    "nakamura-tokichi_Sho-no-Mukash 30gr_Nakamura Tokichi",
+    false
+  ],
+  [
+    "nakamura-tokichi_Hiroha-no-Shiro 30gr_Nakamura Tokichi",
+    false
+  ],
+  [
+    "nakamura-tokichi_Yukawa-no-Shiro 30gr_Nakamura Tokichi",
+    false
+  ],
+  [
+    "rocky-matcha_Ceremonial Blend 20g_Rocky's Matcha",
+    false
+  ],
+  [
+    "rocky-matcha_Ceremonial Blend 100g_Rocky's Matcha",
+    false
+  ],
+  [
+    "rocky-matcha_Tsujiki Ceremonial Blend 20g_Rocky's Matcha",
+    false
+  ],
+  [
+    "rocky-matcha_Osada Ceremonial Blend 20g_Rocky's Matcha",
+    false
+  ],
+  [
+    "ippodo-global_Hatsu-mukashi 40 g",
+    false
+  ],
+  [
+    "ippodo-global_Ikuyo‑no‑mukashi 30 g",
+    false
+  ],
+  [
+    "ippodo-global_Ikuyo‑no‑mukashi 100 g",
+    false
+  ],
+  [
+    "ippodo-global_Uji-Shimizu 400 g Bag",
+    false
+  ],
+  [
+    "ippodo-global_Kan‑no‑shiro 30 g Box",
+    false
+  ],
+  [
+    "ippodo-global_Ummon‑no‑mukashi 40 g Can",
+    false
+  ],
+  [
+    "ippodo-global_Sayaka‑no‑mukashi 40 g Can",
+    false
+  ],
+  [
+    "ippodo-global_Sayaka‑no‑mukashi 100 g Bag",
+    false
+  ],
+  [
+    "ippodo-global_Hatsu-mukashi 40 g_Ippodo Global",
+    true
+  ],
+  [
+    "ippodo-global_Ikuyo‑no‑mukashi 30 g_Ippodo Global",
+    null
+  ],
+  [
+    "ippodo-global_Ikuyo‑no‑mukashi 100 g_Ippodo Global",
+    null
+  ],
+  [
+    "ippodo-global_Uji-Shimizu 400 g Bag_Ippodo Global",
+    true
+  ],
+  [
+    "ippodo-global_Kan‑no‑shiro 30 g Box_Ippodo Global",
+    null
+  ],
+  [
+    "ippodo-global_Ummon‑no‑mukashi 40 g Can_Ippodo Global",
+    null
+  ],
+  [
+    "ippodo-global_Sayaka‑no‑mukashi 40 g Can_Ippodo Global",
+    null
+  ],
+  [
+    "ippodo-global_Sayaka‑no‑mukashi 100 g Bag_Ippodo Global",
+    null
+  ]
+]
