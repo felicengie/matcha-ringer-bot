@@ -417,7 +417,7 @@
   ],
   [
     "marukyu-koyamaen_Aorashi_Marukyu Koyamaen",
-    null
+    false
   ],
   [
     "marukyu-koyamaen_Aorashi_Matcha Miyako",
@@ -425,11 +425,11 @@
   ],
   [
     "marukyu-koyamaen_Chigi no Shiro_Marukyu Koyamaen",
-    null
+    false
   ],
   [
     "marukyu-koyamaen_Isuzu_Marukyu Koyamaen",
-    null
+    false
   ],
   [
     "marukyu-koyamaen_Isuzu_Matcha Miyako",
@@ -437,19 +437,19 @@
   ],
   [
     "marukyu-koyamaen_Kinrin_Marukyu Koyamaen",
-    null
-  ],
-  [
-    "marukyu-koyamaen_Midorigi_J&J Market",
     false
   ],
   [
-    "marukyu-koyamaen_Wakatake_Marukyu Koyamaen",
+    "marukyu-koyamaen_Midorigi_J&J Market",
     null
   ],
   [
+    "marukyu-koyamaen_Wakatake_Marukyu Koyamaen",
+    false
+  ],
+  [
     "marukyu-koyamaen_Wako_Marukyu Koyamaen",
-    null
+    false
   ],
   [
     "marukyu-koyamaen_Wako_Matcha Miyako",
@@ -473,11 +473,11 @@
   ],
   [
     "nakamura-tokichi_senun no shiro_Nakamura Tokichi",
-    true
+    false
   ],
   [
     "nakamura-tokichi_fuji no shiro_Nakamura Tokichi",
-    true
+    false
   ],
   [
     "nakamura-tokichi_Ukishima-no-Shiro_Nakamura Tokichi",
@@ -485,7 +485,7 @@
   ],
   [
     "nakamura-tokichi_Seiko-no-Mukashi 30gr_Nakamura Tokichi",
-    true
+    false
   ],
   [
     "nakamura-tokichi_Seikan-no-Shiro 30gr_Nakamura Tokichi",
@@ -501,7 +501,7 @@
   ],
   [
     "nakamura-tokichi_Yukawa-no-Shiro 30gr_Nakamura Tokichi",
-    false
+    true
   ],
   [
     "rocky-matcha_Ceremonial Blend 20g_Rocky's Matcha",
@@ -513,7 +513,7 @@
   ],
   [
     "rocky-matcha_Tsujiki Ceremonial Blend 20g_Rocky's Matcha",
-    false
+    true
   ],
   [
     "rocky-matcha_Osada Ceremonial Blend 20g_Rocky's Matcha",
@@ -565,7 +565,7 @@
   ],
   [
     "ippodo-global_Uji-Shimizu 400 g Bag_Ippodo Global",
-    true
+    null
   ],
   [
     "ippodo-global_Kan‑no‑shiro 30 g Box_Ippodo Global",
@@ -597,6 +597,6 @@
   ],
   [
     "yamamasa-koyamaen_Kasuga no Mukashi_Gion Tsujiri",
-    false
+    null
   ]
 ]

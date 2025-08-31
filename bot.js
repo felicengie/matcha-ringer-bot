@@ -530,7 +530,7 @@ class MatchaBot {
 
         const embed = new EmbedBuilder()
             .setTitle(`${product.name} is back in stock!`)
-            .setDescription(`🔔 ${role.id} via ${stockInfo.supplier}`)
+            .setDescription(`🔔 <@&${role.id} via ${stockInfo.supplier}`)
             .setColor(0x00ff00)
             .addFields(
                 { name: '**Product**', value: product.name, inline: true },
@@ -552,7 +552,7 @@ class MatchaBot {
             })
             // .setThumbnail('https://cdn.discordapp.com/emojis/1234567890123456789.png'); // Add matcha image
 
-        await channel.send({ content: `<@&${role.id}> - New restock alert!`, embeds: [embed] });
+        await channel.send({ content: `<@&${role.id}> - c${product.name} is back in stock!`, embeds: [embed] });
     }
 
     async checkStockWithRetry(vendor, product, maxRetries = 5) {
@@ -579,7 +579,7 @@ class MatchaBot {
         if (this._monitoringStarted) return;
         this._monitoringStarted = true;
 
-        cron.schedule('*/5 * * * *', async () => { // Check every 5 minutes
+        cron.schedule('*/0.5 * * * *', async () => { // Check every 5 minutes
             console.log('🔍 Checking for restocks...');
             for (const [vendorKey, vendor] of Object.entries(this.vendors)) {
                 for (const product of vendor.products) {
