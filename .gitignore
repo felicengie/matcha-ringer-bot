@@ -4,7 +4,6 @@
 # SENSITIVE FILES - NEVER COMMIT THESE
 # =====================================
 
-Matcha Bot Setup Guide.pdf
 matchabot.js
 congig.js
 package-lock.json

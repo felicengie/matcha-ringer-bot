@@ -24,10 +24,16 @@ class MatchaBot {
         this.stockData = new Map();
         this.userRoles = new Map();
         this.init();
+
+        // Playwright browser instance
+        this.browser = null;      
+        this.browserContext = null;
     }
 
     async init() {
         await this.loadStockData();
+        await this.initBrowser();
+
 
         // Sync new products to stockData
         let updated = false;
@@ -49,6 +55,22 @@ class MatchaBot {
 
         await this.setupEventHandlers();
         await this.client.login(this.token);
+    }
+
+    async initBrowser() {
+        const { chromium } = require('playwright');
+
+        this.browser = await chromium.launch({
+            headless: true,
+            args: ['--no-sandbox', '--disable-setuid-sandbox']
+        });
+
+        this.browserContext = await this.browser.newContext({
+            userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+            viewport: { width: 1920, height: 1080 }
+        });
+
+        console.log('🌐 Persistent Playwright browser launched for real-time monitoring');
     }
 
     async loadStockData() {
@@ -503,18 +525,81 @@ class MatchaBot {
 
     async checkStock(supplier, product) {
         try {
-            const result = await scrapeWebsite(supplier.url);
+            if (!this.browserContext) {
+                console.warn('⚠️ Browser context not initialized, initializing now...');
+                await this.initBrowser();
+            }
 
-            // Use the same helpers as !matcha-test-url
+            const page = await this.browserContext.newPage();
+
+            await page.goto(supplier.url, {
+                waitUntil: 'load',
+                timeout: 45000
+            });
+
+            // Wait for the page to render JS
+            await page.waitForTimeout(2000);
+
+            // Evaluate stock and price
+            const result = await page.evaluate(() => {
+                const buttons = Array.from(document.querySelectorAll('button, input[type="submit"], .btn, .button'))
+                                    .map(el => el.innerText.trim())
+                                    .filter(Boolean);
+
+                const stockElements = Array.from(document.querySelectorAll('.stock, .availability, .sold-out, .out-of-stock, .unavailable, .in-stock'))
+                                        .map(el => el.innerText.trim())
+                                        .filter(Boolean);
+
+                const priceElements = Array.from(document.querySelectorAll('.price, .cost, .money, [class*="price"]'))
+                                        .map(el => el.innerText.trim())
+                                        .filter(Boolean);
+
+                const title = document.title || '';
+                return { buttons, stockElements, priceElements, title };
+            });
+
+            await page.close();
+
             const inStock = isInStock(result);
             const price = extractPrice(result);
 
-
             return { inStock, price: price || 'Not found', supplier: supplier.name, url: supplier.url };
+
         } catch (error) {
-            console.error(`Error checking ${supplier.name} - ${product.name}:`, error.message);
-            return { inStock: false, price: 'Error', supplier: supplier.name,url: supplier.url };
+            console.error(`❌ Error checking ${supplier.name} - ${product.name}:`, error.message);
+            return { inStock: false, price: 'Error', supplier: supplier.name, url: supplier.url };
         }
+    }
+
+    async countProduct(vendorKey) {
+        let count = 0;
+        const vendor = this.vendors[vendorKey];
+        
+        if (!vendor) return 0;
+        
+        for (const product of vendor.products) {
+            for (const supplier of product.suppliers) {
+                const productKey = `${vendorKey}_${product.name}_${supplier.name}`;
+                const isInStock = this.stockData.get(productKey);
+                if (isInStock) {
+                    count++;
+                }
+            }
+        }
+        
+        return count;
+    }
+    
+    getNumberEmoji(num) {
+        const emojiNumbers = ['0️⃣', '1️⃣', '2️⃣', '3️⃣', '4️⃣', '5️⃣', '6️⃣', '7️⃣', '8️⃣', '9️⃣'];
+        if (num < 10) return emojiNumbers[num];
+        // For numbers 10+, you could use multiple emojis or just the number
+        if (num >= 10) {
+            const tens = Math.floor(num / 10);
+            const ones = num % 10;
+            return `${emojiNumbers[tens]}${emojiNumbers[ones]}`;
+        }
+        return `${num}️⃣`;
     }
 
     async sendStockAlert(vendorKey, vendor, product, stockInfo) {
@@ -527,13 +612,15 @@ class MatchaBot {
         const supplierName = stockInfo.supplier || 'Unknown Supplier';
         const price = stockInfo.price || 'Not found';
         const url = stockInfo.url || '#';
+        const brand = vendor.name || 'Unknown Brand';
+        const matchaCount = await this.countProduct(vendorKey);
 
         const embed = new EmbedBuilder()
-            .setTitle(`${product.name} is back in stock!`)
-            .setDescription(`🔔 <@&${role.id} via ${stockInfo.supplier}`)
+            .setTitle(`${this.getNumberEmoji(matchaCount)} Matcha Product Available!`)
+            .setDescription(`${product.name} is now in stock!`)
             .setColor(0x00ff00)
             .addFields(
-                { name: '**Product**', value: product.name, inline: true },
+                { name: '**Brand**', value: vendor.name, inline: true },
                 { name: '**Supplier**', value: stockInfo.supplier, inline: true },
                 { name: '💰 Price', value: stockInfo.price || 'Not found', inline: true },
                 { name: '📦 Status', value: '🟢 Available', inline: true },
@@ -552,7 +639,7 @@ class MatchaBot {
             })
             // .setThumbnail('https://cdn.discordapp.com/emojis/1234567890123456789.png'); // Add matcha image
 
-        await channel.send({ content: `<@&${role.id}> - c${product.name} is back in stock!`, embeds: [embed] });
+        await channel.send({ content: `<@&${role.id}> - ${product.name} is back in stock!`, embeds: [embed] });
     }
 
     async checkStockWithRetry(vendor, product, maxRetries = 5) {
@@ -579,39 +666,50 @@ class MatchaBot {
         if (this._monitoringStarted) return;
         this._monitoringStarted = true;
 
-        cron.schedule('*/0.5 * * * *', async () => { // Check every 5 minutes
+        console.log('📊 Stock monitoring started - checking every 30 seconds');
+
+        setInterval(async () => {
             console.log('🔍 Checking for restocks...');
+
             for (const [vendorKey, vendor] of Object.entries(this.vendors)) {
                 for (const product of vendor.products) {
                     for (const supplier of product.suppliers) {
                         const productKey = `${vendorKey}_${product.name}_${supplier.name}`;
                         try {
+                            // Check stock using Playwright scraper
                             const stockInfo = await this.checkStock(supplier, product);
                             const previousStock = this.stockData.get(productKey);
 
-                        if (stockInfo.inStock && (previousStock === false || previousStock === undefined)) {
-                            console.log(`🎉 ${vendor.name} - ${product.name} is back in stock!`);
-                            await this.sendStockAlert(vendorKey, vendor, product, { 
-                                inStock: stockInfo.inStock,
-                                price: stockInfo.price,
-                                url: stockInfo.url,
-                                supplier: supplier.name
-                            });
+                            // Only alert if product is back in stock
+                            if (stockInfo.inStock && !previousStock) {
+                                console.log(`🎉 ${vendor.name} - ${product.name} is back in stock!`);
+                                await this.sendStockAlert(vendorKey, vendor, product, { 
+                                    inStock: stockInfo.inStock,
+                                    price: stockInfo.price,
+                                    url: stockInfo.url,
+                                    supplier: supplier.name
+                                });
+                            }
+
+                            // Update cached stock state
+                            this.stockData.set(productKey, stockInfo.inStock);
+                        } catch (err) {
+                            console.error(`❌ Error checking ${vendor.name} - ${product.name}:`, err.message);
                         }
 
-                        this.stockData.set(productKey, stockInfo.inStock);
-                    } catch (err) {
-                        console.error(`Error checking ${vendor.name} - ${product.name}:`, err.message);
+                        // Small delay between products to avoid overwhelming the site
+                        await new Promise(resolve => setTimeout(resolve, 500));
                     }
-                        await new Promise(resolve => setTimeout(resolve, 2000)); // 2s delay between products
-                    }
-                    await new Promise(resolve => setTimeout(resolve, 2000)); // 2s delay between vendors
+
+                    // Slight delay between vendors
+                    await new Promise(resolve => setTimeout(resolve, 500));
                 }
             }
+
+            // Save stock state to disk
             await this.saveStockData();
-        });
-        console.log('📊 Stock monitoring started - checking every 5 minutes');
-    }
+        }, 30 * 1000); // 30 seconds
+}
 
     async sendStatusUpdate(channel) {
         const embed = new EmbedBuilder()
@@ -619,7 +717,7 @@ class MatchaBot {
             .setColor(0x90EE90)
             .setDescription(`Monitoring ${Object.keys(this.vendors).length} vendors with ${Object.values(this.vendors).reduce((acc, v) => acc + v.products.length, 0)} products`)
             .addFields(
-                { name: '⏰ Check Frequency', value: 'Every 5 minutes', inline: true },
+                { name: '⏰ Check Frequency', value: 'Every 30 seconds', inline: true },
                 { name: '📱 Last Check', value: new Date().toLocaleTimeString(), inline: true },
                 { name: '💾 Products Tracked', value: this.stockData.size.toString(), inline: true }
             );

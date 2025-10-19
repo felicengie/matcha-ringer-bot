@@ -306,6 +306,16 @@ const vendors = {
           }
       ]
     },
+    'saijoen': {
+        name: 'Saijoen',
+        products: [
+            { name: 'Yuzan 30g', 
+              suppliers: [
+                { name: 'Shizucha', url: 'https://shizucha.com/products/saijoen-sawa-30g?_pos=9&_sid=c337d18d3&_ss=r' }
+              ]
+            }
+        ]
+    }
 };
 
 module.exports = vendors;
