@@ -4,7 +4,6 @@
 # SENSITIVE FILES - NEVER COMMIT THESE
 # =====================================
 
-matchabot.js
 congig.js
 package-lock.json
 package.json
